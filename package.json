@@ -1,0 +1,24 @@
+{
+  "name": "macbook-alert",
+  "version": "1.0.0",
+  "description": "This guy [Nick](https://github.com/nickbouldien)  really needs a macbooks or whatever. Starter weather app to turn into a notify Nick about macbooks app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charmgeorge/Macbook-Alert.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charmgeorge/Macbook-Alert/issues"
+  },
+  "homepage": "https://github.com/charmgeorge/Macbook-Alert#readme",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "angular-resource": "^1.3.0",
+    "angular-route": "^1.3.0"
+  }
+}
