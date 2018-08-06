@@ -16,12 +16,25 @@ weatherApp.config(function ($routeProvider) {
   .otherwise({redirectTo:'/'});
 });
 
+//SERVICES
+weatherApp.service('cityService', function() {
+  this.city = "San Diego, CA";
+});
 
 // CONTROLLERS
-weatherApp.controller('homeController', ['$scope', function($scope) {
+weatherApp.controller('homeController', ['$scope', 'cityService', function($scope, cityService) {
+
+  $scope.city = cityService.city;
+
+  $scope.$watch('city', function() {
+    cityService.city = $scope.city;
+  });
 
 }]);
 
-weatherApp.controller('forecastController', ['$scope', function($scope) {
+weatherApp.controller('forecastController', ['$scope', 'cityService',
+ function($scope, cityService) {
+
+  $scope.city = cityService.city;
 
 }]);
