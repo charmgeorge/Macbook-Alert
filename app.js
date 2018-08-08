@@ -38,10 +38,14 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
 
   $scope.city = cityService.city;
 
-  $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=04feb4b79b1eb18d5094df27d96f1f62&q=London&cnt=2", {
+  var url= "https://api.openweathermap.org/data/2.5/weather"
+  $scope.weatherAPI = $resource(url, {
     callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
 
-    $scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: 2 });
+
+    $scope.weatherResult = $scope.weatherAPI.get({ q:"London,uk", appid: "04feb4b79b1eb18d5094df27d96f1f62"}).$promise.then(function(result){
+    console.log(result);
+  });
 
     console.log($scope.weatherResult);
 
