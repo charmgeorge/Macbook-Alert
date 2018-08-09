@@ -45,7 +45,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
     callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
 
 
-    $scope.weatherResult = $scope.weatherAPI.get({ q:"London,uk", appid: myKey}).$promise.then(function(result){
+    $scope.weatherResult = $scope.weatherAPI.get({ q:"London,uk", cnt:2, appid: myKey}).$promise.then(function(result){
     console.log(result);
   });
 
