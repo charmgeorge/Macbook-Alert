@@ -19,7 +19,7 @@ weatherApp.config(function ($routeProvider) {
 
 //SERVICES
 weatherApp.service('cityService', function() {
-  this.city = "San Diego, CA";
+  this.city = "San Diego, US";
 });
 
 // CONTROLLERS
@@ -41,14 +41,26 @@ weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService
   var url= "https://api.openweathermap.org/data/2.5/weather";
   var myKey = config.MY_KEY;
 
-  $scope.weatherAPI = $resource(url, {
-    callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
+//   $scope.weatherAPI = $resource(url, {
+//     callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
+//
+//
+//     $scope.weatherResult = $scope.weatherAPI.get({ q:"London,uk", cnt:2, appid: myKey}).$promise.then(function(result){
+//     console.log(result);
+//   });
+//
+//     console.log($scope.weatherResult);
+//
+// }]);
+
+$scope.weatherAPI = $resource(url, {
+  callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
 
 
-    $scope.weatherResult = $scope.weatherAPI.get({ q:"London,uk", cnt:2, appid: myKey}).$promise.then(function(result){
-    console.log(result);
-  });
+  $scope.weatherResult = $scope.weatherAPI.get({ q:$scope.city, cnt:2, appid: myKey}).$promise.then(function(result){
+  console.log(result);
+});
 
-    console.log($scope.weatherResult);
+  console.log($scope.weatherResult);
 
 }]);

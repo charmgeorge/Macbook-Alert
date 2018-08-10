@@ -1,14 +1,14 @@
-Forecast for {{ city }} aa
+Forecast for {{ city }}
 
-<div ng-repeat="w in weatherResult.list">
+<div ng-repeat="w in weatherResult">
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">{{ w.dt }}</h3>
+          <h3 class="panel-title">{{ dt }}</h3>
         </div>
         <div class="panel-body">
-          Daytime temperature: {{ w.main.temp}}
+          Daytime temperature: {{ weatherResult.main.temp}}
         </div>
       </div>
     </div>
