@@ -45,7 +45,7 @@ $scope.weatherAPI = $resource(url, {
   callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
 
 
-  $scope.weatherResult = $scope.weatherAPI.get({ q:$scope.city, cnt:2, appid: myKey}).$promise.then(function(result){
+  $scope.weatherResult = $scope.weatherAPI.get({ q:$scope.city, appid: myKey}).$promise.then(function(result){
   console.log(result);
 });
 
